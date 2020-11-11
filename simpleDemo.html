@@ -1,0 +1,29 @@
+<!doctype HTML>
+<html>
+
+<head>
+    <title>Bit coin conversion</title>
+</head>
+
+<body>
+    <form>
+        How much money<input type="number" id=dollars>
+    </form>
+    <button onclick="convert();">Calculate</button>
+    <h2 id="bitcoin"></h2>
+
+    <script>
+        function convert() {
+            //strip from screen
+            var dollars = document.getElementById("dollars").value;
+            //do the math
+            var bitCoin = dollars / 16000;
+
+            //alert(bitCoin);
+            document.getElementById("Bitcoin").innerHTML = bitCoin;
+
+        }
+    </script>
+</body>
+
+</html>
