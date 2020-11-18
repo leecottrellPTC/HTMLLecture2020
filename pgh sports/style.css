@@ -57,3 +57,48 @@ a:visited {
     color: rgb(255, 255, 255);
 }
 */
+
+
+/*tag level class*/
+
+
+/*classes are reusable CSS formats*/
+
+img.imgLeft {
+    float: left;
+    /* be to the left of _whatever_ follows*/
+    margin-right: 1.5em;
+    margin-bottom: 1.5em;
+    border: 1pt solid rgb(165, 172, 175);
+    border-radius: 15pt;
+}
+
+img.imgRight {
+    float: right;
+    /* be to the left of _whatever_ follows*/
+    margin-left: 1.5em;
+    margin-bottom: 1.5em;
+    border: 1pt solid rgb(165, 172, 175);
+    border-radius: 15pt;
+}
+
+
+/*generic class
+usable by all HTML objects
+.whateverName
+apply with class attribute in any HTML object
+*/
+
+.emphasize {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: rgb(165, 172, 175);
+}
+
+
+/*turn off the float attribute using clear*/
+
+h2,
+footer {
+    clear: both;
+}
