@@ -1,0 +1,139 @@
+div{
+    border: 1pt dotted #ffff00;
+    z-index:10;
+    position:absolute;
+}
+img.board{
+    z-index:5;
+    position:absolute;
+    left:10px;
+    top:10px;
+
+}
+.a1{
+   left:10px;
+    top:10px;
+    width:50px;
+    height:50px;
+
+}
+
+.b1{
+     left:73px;
+    top:10px;
+    width:50px;
+    height:50px;
+}
+
+ .c1{
+     left:136px;
+    top:10px;
+    width:50px;
+    height:50px;
+}
+
+ .d1{
+     left:199px;
+    top:10px;
+    width:50px;
+    height:50px;
+}
+
+.a2{
+   left:10px;
+    top:73px;
+    width:50px;
+    height:50px;
+
+}
+
+.b2{
+     left:73px;
+    top:73px;
+    width:50px;
+    height:50px;
+}
+
+ .c2{
+     left:136px;
+    top:73px;
+    width:50px;
+    height:50px;
+}
+
+ .d2{
+     left:199px;
+    top:73px;
+    width:50px;
+    height:50px;
+}
+
+ .a3{
+   left:10px;
+    top:136px;
+    width:50px;
+    height:50px;
+
+}
+
+.b3{
+     left:73px;
+    top:136px;
+    width:50px;
+    height:50px;
+}
+
+ .c3{
+     left:136px;
+    top:136px;
+    width:50px;
+    height:50px;
+}
+
+ .d3{
+     left:199px;
+    top:136px;
+    width:50px;
+    height:50px;
+}
+
+ .a4{
+   left:10px;
+    top:199px;
+    width:50px;
+    height:50px;
+
+}
+
+.b4{
+     left:73px;
+    top:199px;
+    width:50px;
+    height:50px;
+}
+
+ .c4{
+     left:136px;
+    top:199px;
+    width:50px;
+    height:50px;
+}
+
+ .d4{
+     left:199px;
+    top:199px;
+    width:50px;
+    height:50px;
+}
+
+.pieces{
+    left:300px;
+    top:10px;
+	position:absolute;
+}
+
+canvas{
+    border:1pt dotted #ffff00;
+    position:absolute;
+    top:270px;
+}

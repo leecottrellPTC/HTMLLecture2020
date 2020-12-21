@@ -1,0 +1,236 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Perfection Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <img id="board" class="board" src="images/board.jpg">
+    <div id="a1" class="a1" ondrop="drop(this, event)" ondragenter="return false" ondragover="return false"></div>
+    <div id="b1" class="b1" ondrop="drop(this, event)" ondragenter="return false" ondragover="return false"></div>
+    <div id="c1" class="c1" ondrop="drop(this, event)" ondragenter="return false" ondragover="return false"></div>
+    <div id="d1" class="d1" ondrop="drop(this, event)" ondragenter="return false" ondragover="return false"></div>
+
+    <div id="a2" class="a2" ondrop="drop(this, event)" ondragenter="return false" ondragover="return false"></div>
+    <div id="b2" class="b2" ondrop="drop(this, event)" ondragenter="return false" ondragover="return false"></div>
+    <div id="c2" class="c2" ondrop="drop(this, event)" ondragenter="return false" ondragover="return false"></div>
+    <div id="d2" class="d2" ondrop="drop(this, event)" ondragenter="return false" ondragover="return false"></div>
+
+    <div id="a3" class="a3" ondrop="drop(this, event)" ondragenter="return false" ondragover="return false"></div>
+    <div id="b3" class="b3" ondrop="drop(this, event)" ondragenter="return false" ondragover="return false"></div>
+    <div id="c3" class="c3" ondrop="drop(this, event)" ondragenter="return false" ondragover="return false"></div>
+    <div id="d3" class="d3" ondrop="drop(this, event)" ondragenter="return false" ondragover="return false"></div>
+
+    <div id="a4" class="a4" ondrop="drop(this, event)" ondragenter="return false" ondragover="return false"></div>
+    <div id="b4" class="b4" ondrop="drop(this, event)" ondragenter="return false" ondragover="return false"></div>
+    <div id="c4" class="c4" ondrop="drop(this, event)" ondragenter="return false" ondragover="return false"></div>
+    <div id="d4" class="d4" ondrop="drop(this, event)" ondragenter="return false" ondragover="return false"></div>
+    <div id="pieces" class="pieces">
+        <button onclick="startGame()" id="startButton">Start Game</button>
+        <!--
+        <img src="images/d4.jpg" draggable="true" ondragstart="drag(this, event)" ondragend="return false" id="d4p">
+        <img src="images/c4.jpg" draggable="true" ondragstart="drag(this, event)" ondragend="return false" id="c4p">
+        <img src="images/b4.jpg" draggable="true" ondragstart="drag(this, event)" ondragend="return false" id="b4p">
+        <img src="images/a4.jpg" draggable="true" ondragstart="drag(this, event)" ondragend="return false" id="a4p">
+
+        <img src="images/d3.jpg" draggable="true" ondragstart="drag(this, event)" ondragend="return false" id="d3p">
+        <img src="images/c3.jpg" draggable="true" ondragstart="drag(this, event)" ondragend="return false" id="c3p">
+        <img src="images/b3.jpg" draggable="true" ondragstart="drag(this, event)" ondragend="return false" id="b3p">
+        <img src="images/a3.jpg" draggable="true" ondragstart="drag(this, event)" ondragend="return false" id="a3p">
+
+        <img src="images/d2.jpg" draggable="true" ondragstart="drag(this, event)" ondragend="return false" id="d2p">
+        <img src="images/c2.jpg" draggable="true" ondragstart="drag(this, event)" ondragend="return false" id="c2p">
+        <img src="images/b2.jpg" draggable="true" ondragstart="drag(this, event)" ondragend="return false" id="b2p">
+        <img src="images/a2.jpg" draggable="true" ondragstart="drag(this, event)" ondragend="return false" id="a2p">
+
+        <img src="images/d1.jpg" draggable="true" ondragstart="drag(this, event)" ondragend="return false" id="d1p">
+        <img src="images/c1.jpg" draggable="true" ondragstart="drag(this, event)" ondragend="return false" id="c1p">
+        <img src="images/b1.jpg" draggable="true" ondragstart="drag(this, event)" ondragend="return false" id="b1p">
+        <img src="images/a1.jpg" draggable="true" ondragstart="drag(this, event)" ondragend="return false" id="a1p">
+        -->
+    </div>
+    <canvas id="stopwatch" height="150" width="150"></canvas>
+    <script>
+        var placed = 0; //number of correctly placed pictures
+        var gameTimer;
+        var draw;
+        var secTimer;
+
+        function drawHand(){
+            // draw.rotate(50* Math.PI/30);
+            //draw the hand
+            draw.beginPath();
+            draw.moveTo(0,0);
+            draw.lineTo(0, -60);
+            draw.strokeStyle = "#2378b0";
+            draw.lineWidth= 10;
+            draw.lineCap = "round";
+            draw.stroke();
+            draw.rotate(Math.PI/30);
+        }
+
+        function drawClock(){
+            draw= document.getElementById("stopwatch").getContext("2d");
+            draw.clearRect(0,0,150,150);
+            draw.beginPath();   //path is drawing 
+            draw.translate(75,75);  //puts the center of the object
+            draw.arc(0,0,73, 0, Math.PI*2, true);
+            draw.strokeStyle = "#2378b0";
+            draw.lineWidth = 4;
+            draw.stroke();
+            
+            //draw the tick marks
+            draw.lineWidth=2;
+            for(t = 0; t < 60; t++){
+                draw.beginPath();
+                draw.moveTo(0, -75);//moves the pen to the line
+                draw.lineTo(0, -65);//draw a 10 pixel line down
+                if(t % 15 == 0){
+                    draw.lineWidth = 4;
+                }
+                else{
+                    draw.lineWidth = 2;
+                }
+                draw.strokeStyle = "#2378b0";
+                draw.stroke();
+                draw.rotate(Math.PI/30);
+            }
+
+            //center point
+
+            draw.beginPath();
+            draw.arc(0,0,10,0, Math.PI*2, true);
+                //x, y, r, start angle
+            draw.fillStyle = "#2378b0";
+            draw.fill();
+
+            
+        }
+
+        function ticker(){
+            //this is what happens at the end of the timer
+            window.clearInterval(gameTimer);//stops the timer
+            window.clearInterval(secTimer);
+            document.getElementById("startButton").setAttribute("style", "display:visible;");
+            if(placed < 16){
+                pieceFly("a1p");
+                pieceFly("a2p");
+                pieceFly("a3p");
+                pieceFly("a4p");
+
+                pieceFly("b1p");
+                pieceFly("b2p");
+                pieceFly("b3p");
+                pieceFly("b4p");
+
+                pieceFly("c1p");
+                pieceFly("c2p");
+                pieceFly("c3p");
+                pieceFly("c4p");
+
+                pieceFly("d1p");
+                pieceFly("d2p");
+                pieceFly("d3p");
+                pieceFly("d4p");
+             
+            }
+        }
+
+        function pieceFly(piece){
+            //rotate the pictures
+            document.getElementById(piece).style.transform = "rotate(30deg)";
+            document.getElementById(piece).setAttribute("draggable", "false");
+        }
+
+        function winner(){
+            //determine if there is a winner
+            if(placed > 15){ //cheat for manual testing
+                var image = document.createElement("img");
+                image.setAttribute("src", "images/winner.png");
+                image.setAttribute("style", "z-index:20;");//put above other items on the screen
+                document.getElementById("pieces").appendChild(image);
+                window.clearInterval(gameTimer);//stop the timer
+                document.getElementById("startButton").setAttribute("style", "display:visible;");
+                window.clearInterval(secTimer);
+            }
+        }
+
+        function startGame(){
+            //hide the button
+            document.getElementById("startButton").setAttribute("style", "display:none;");
+            placeImage("a1");
+            placeImage("b1");
+            placeImage("c1");
+            placeImage("d1");
+
+            placeImage("a2");
+            placeImage("b2");
+            placeImage("c2");
+            placeImage("d2");
+
+            placeImage("a3");
+            placeImage("b3");
+            placeImage("c3");
+            placeImage("d3");
+
+            placeImage("a4");
+            placeImage("b4");
+            placeImage("c4");
+            placeImage("d4");
+
+            gameTimer = window.setInterval(ticker, 6000);//60 second timer
+            drawClock();
+            secTimer = window.setInterval(drawHand, 1000);
+        }
+        function placeImage(imgName){
+            var image = document.createElement("img");
+            var path = "images/" + imgName + ".jpg";    //images/a1.jpg
+            image.setAttribute("src", path);
+
+            //placement of images
+            image.setAttribute("style", "position:absolute;");
+            var x = Math.floor(Math.random() * 300 + 300);
+            var y = Math.floor(Math.random() * 300 + 50);
+
+            image.style.top = y + 'px';
+            image.style.left= x + 'px';
+
+            image.setAttribute("id", imgName + "p");
+            image.setAttribute("draggable", true);
+            image.setAttribute("ondragstart", "drag(this, event)");
+
+            document.body.appendChild(image);
+        }
+        function drag(piece, event) {
+            //when we move an object
+            //alert("Dragging ")
+            event.dataTransfer.dropEffect = 'move';
+            event.dataTransfer.effectAllowed = 'move';
+            event.dataTransfer.setData('Text', piece.id);
+        }
+        function drop(target, event) {
+            //when we release the left mouse
+            //alert("Dropped");
+            var id = event.dataTransfer.getData('Text');
+            if (target.id == id.substr(0, 2)) {
+                //d4p
+                //substr(0, 2) = d4
+                //will only drop in the right place
+                document.getElementById(id).removeAttribute("style");
+                target.appendChild(document.getElementById(id));
+                placed ++;//add one to placed
+                winner();//check to see if there is a winner
+            }
+            event.preventDefault(); //stops the browser from reloading the screen with just the dropped element
+        }
+    </script>
+</body>
+
+</html>

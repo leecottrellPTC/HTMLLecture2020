@@ -1,0 +1,44 @@
+<!doctype <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CSS Animations</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://kit.fontawesome.com/3d57c85c06.js" crossorigin="anonymous"></script>
+        <style>
+            .image{
+               margin:3em;
+               transform:scale(.25);
+               transition:all 2s ease-in-out;
+               /*transform:rotate(-5deg) scale(.75) translate(100px, -12em);*/
+                                                        /*   x       y   */
+            }
+            .image:hover{
+                transform: rotate(5deg) scale(1.1);
+            }
+
+            body{
+                background-color:red;
+                animation:colorChange 20s infinite alternate;
+            }
+
+            @keyframes colorChange
+            {
+                0%  {background-color:red;}
+                33% {background-color:orange;}
+                66% {background-color: yellow;}
+                100% {background-color:green};
+            }
+        </style>
+    </head>
+    <body>
+        <figure class="image">
+        <img src="images/web.jpg" alt="This is a pic" title="This is a pic">
+        <figcaption>HTML CSS</figcaption>
+        </figure>
+        
+        <h1>Here is a header <i class="fas fa-bug"></i></h1>
+        <p><i class="fas fa-infinity"></i></p>
+    </body>
+</html>
