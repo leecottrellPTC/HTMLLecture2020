@@ -113,7 +113,7 @@
                 //alert("You must pick precisely 2 check boxes");
                 document.getElementById("errors").innerHTML += "You must pick precisely 2 check boxes<br>";
                 //return;
-                anyError++;
+                anyError++;//this allows me to check for ALL errors at one time
             }
             if (anyError == 0) {
                 document.getElementById("theForm").submit();
