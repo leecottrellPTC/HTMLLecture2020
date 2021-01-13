@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <style>
+        .form-check-label{
+            margin-right:1em;
+        }
+    </style>
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <h1>Form Validation with HTML</h1>
+    <form method="POST" action="https://www.leecottrell.com/phpclass/postback.php" 
+        name="theForm">
+        <div class="form-group">
+            <label for="fname">Fname</label>
+            <input type="text" class="form-control" id="fname" name="fname"
+            required>
+        </div>
+        <div class="form-group">
+            <label for="lname">Lname</label>
+            <input type="text" class="form-control" id="lname" name="lname"
+            required>
+        </div>
+        <div class="form-group">
+            <label for="age" id="ageLabel">Age = 20</label>
+            <input type="range" class="form-control" id="age" value="20" min="10" max="100"
+                name="age" onchange="rangeDisplay()">
+        </div>
+        <h4>Select precisely two choices</h4>
+
+        <div class="form-group form-check-inline">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" 
+                name="exampleCheck1" value="check1">
+            <label class="form-check-label" for="exampleCheck1">Check 1</label>
+
+            <input type="checkbox" class="form-check-input" id="exampleCheck2"
+                name="exampleCheck2" value="check2">
+            <label class="form-check-label" for="exampleCheck2">Check 2</label>
+
+            <input type="checkbox" class="form-check-input" id="exampleCheck3"
+                name="exampleCheck3" value="check3">
+            <label class="form-check-label" for="exampleCheck3">Check 3</label>
+
+            <input type="checkbox" class="form-check-input" id="exampleCheck4"
+                name="exampleCheck4" value="check4">
+            <label class="form-check-label" for="exampleCheck4">Check 4</label>
+
+        </div>
+        <div class="form-group">
+            <label for="SSN">SSN</label>
+            <input type="text" class="form-control" id="SSN" name="SSN"
+            required placeholder="###-##-####" pattern="^\d{3}-\d{2}-\d{4}$"
+            maxlength="11">
+            
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+        crossorigin="anonymous"></script>
+
+        <script>
+            function rangeDisplay(){
+                var ageLabel = document.getElementById("ageLabel");
+                var age = document.getElementById("age").value;
+                ageLabel.innerHTML = "Age = " + age;
+            }
+
+        </script>
+
+</body>
+
+</html>
